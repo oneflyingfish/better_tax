@@ -68,9 +68,9 @@ def GetTax(income_year, bonus_year,stable_bonus_year, accumulation_found_year,sp
         print("如果您不调整奖金发放，缴税如下:")
         data=[
             ["全年税前收入",str(np.round(income_year,2)[0]),"全年一次性奖金收入",str(np.round(bonus_year,2)[0])],
-            ["专项扣除",str((accumulation_found_year)),"",""],
-            ["专项附加扣除+个人养老金",str((special_deduction_year+annuity_year)),"",""],
-            ["年度个税起征点",str(Free),"",""],
+            ["专项扣除",str(np.round(accumulation_found_year,2)),"",""],
+            ["专项附加扣除+个人养老金",str(np.round(special_deduction_year+annuity_year,2)),"",""],
+            ["年度个税起征点",str(np.round(Free,2)),"",""],
             ["年度工资应纳税所得额",str(np.round(income_total,2)[0]),"年度奖金应纳税所得额",str(np.round(bonus_year,2)[0])],
             ["年综合所得个税",str(np.round(income_tax,2)[0]),"全年一次性奖金税",str(np.round(bonus_tax,2)[0])],
         ]
