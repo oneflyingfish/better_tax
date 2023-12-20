@@ -150,12 +150,12 @@ def handlemode():
         
     income_year+=ReadFloat("请输入全年其它劳务所得（不含年终奖金，单位：元）：")
     bonus_year=ReadFloat("请输入可调节奖金（单位：元）：")
-    stable_bonus_year=ReadFloat("请输入其它奖金（不可调整部分, 单位：元）：")  
+    stable_bonus_year=ReadFloat("请输入其它单独计税奖金（不可调整部分, 单位：元）：")  
           
     accumulation_found_ratios=ReadDetail("社保公积金缴纳比例", "， 小数, -1表示最高(12+2+0.3)%")
     accumulation_found_ratios=np.where(accumulation_found_ratios<0,0.143,accumulation_found_ratios)
     accumulation_found_year=np.sum(income_months*accumulation_found_ratios)
-    annuity_ratios=ReadDetail("五险缴纳比例", "， 小数, -1表示最高（8）%")
+    annuity_ratios=ReadDetail("个人养老金缴纳比例", "， 小数, -1表示最高（8）%")
     annuity_ratios=np.where(annuity_ratios<0,0.143,annuity_ratios)
     annuity_year=np.sum(income_months*annuity_ratios)
     
