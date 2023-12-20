@@ -114,7 +114,7 @@ def ReadFloat(name)->float:
         try:
             i=input(name)
             if i.endswith("%"):
-                return float(i.strip("%"))
+                return float(i.strip("%"))/100.0
             else:
                 return float(i)
         except Exception as e:
@@ -145,7 +145,7 @@ def ReadDetail(tips:str,addition:str):
     return np.array(months[:12])
 
 def handlemode():
-    income_months=ReadDetail("月薪",", 单位：元")
+    income_months=ReadDetail("月薪【税前】",", 单位：元")
     income_year=np.sum(income_months)
         
     income_year+=ReadFloat("请输入全年其它劳务所得（不含年终奖金，单位：元）：")
@@ -169,7 +169,6 @@ def main():
             handlemode()
         elif end==1:
             automode()
-            break
         
         while True:
             end=input("请输入\"exit\"退出，输入\"continue\"继续：")
